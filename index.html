@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dekoracje Ogrodowe - Donice i Gazony Betonowe</title>
+    <style>
+        :root {
+            --primary: #5a6f5b;
+            --secondary: #3e4d3f;
+            --accent: #8a9a8b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #333333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            background-color: var(--light);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--light);
+            transform: skewY(-2deg);
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0;
+        }
+        
+        nav ul li a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 1.2rem 1.5rem;
+            display: block;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(90, 111, 91, 0.05);
+            border-bottom: 3px solid var(--accent);
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .product-gallery, .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-item, .portfolio-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .product-item:hover, .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .product-image, .portfolio-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-image img, .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-item:hover img, .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .product-info, .portfolio-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3, .portfolio-info h3 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+        
+        .price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-info p {
+            margin: 0.8rem 0;
+        }
+        
+        .business-hours {
+            margin-top: 1.5rem;
+        }
+        
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .hours-table tr:nth-child(even) {
+            background-color: rgba(90, 111, 91, 0.05);
+        }
+        
+        .hours-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .hours-table td:first-child {
+            font-weight: 600;
+        }
+        
+        .note {
+            font-style: italic;
+            color: #666;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .map-container {
+            margin-top: 2rem;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Sekcja opinii */
+        .reviews-section {
+            margin-top: 4rem;
+        }
+        
+        .reviews-container {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            margin: 2rem 0;
+        }
+        
+        .reviews-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+        
+        .review-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .review-author {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .review-date {
+            color: #666;
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+        
+        .review-rating {
+            color: #ffc107;
+            margin-bottom: 0.5rem;
+        }
+        
+        .review-form {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        
+        .slider-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .slider-btn:hover {
+            background: var(--secondary);
+        }
+        
+        .delete-review {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .delete-review.hidden {
+            display: none;
+        }
+        
+        .login-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .login-form {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .login-form input {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .login-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .current-user {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .login-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .product-gallery, .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Dekoracje Ogrodowe</h1>
+            <p class="tagline">Donice • Gazony • Elementy Małej Architektury</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#o-nas">O Nas</a></li>
+            <li><a href="#produkty">Produkty</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#dostawa">Dostawa</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="o-nas">
+            <h2>O Nas</h2>
+            <div class="card">
+                <p>Specjalizujemy się w tworzeniu wyjątkowych dekoracji ogrodowych z betonu. Nasze donice i gazony łączą w sobie nowoczesny design z niezwykłą trwałością, tworząc unikalne elementy małej architektury ogrodowej.</p>
+                <p>Każdy produkt jest ręcznie wykonany z dbałością o najdrobniejsze szczegóły, co gwarantuje najwyższą jakość i wyjątkowy charakter.</p>
+            </div>
+        </section>
+
+        <section id="produkty">
+    <h2>Nasze Produkty</h2>
+    <div class="product-gallery">
+        <div class="product-item">
+            <div class="product-image">
+                <img src="IMG-20250430-WA0001.jpg" alt="Donica">
+            </div>
+            <div class="product-info">
+                <h3>Donica</h3>
+                <p>Więcej informacji telefonicznie</p>
+                <p class="price">Cena: do ustalenia telefonicznie</p>
+            </div>
+        </div>
+        
+        <div class="product-item">
+            <div class="product-image">
+                <img src="IMG-20250430-WA0002.jpg" alt="Donica">
+            </div>
+            <div class="product-info">
+                <h3>Donica</h3>
+                <p>Więcej informacji telefonicznie</p>
+                <p class="price">Cena: do ustalenia telefonicznie</p>
+            </div>
+        </div>
+        
+        <div class="product-item">
+            <div class="product-image">
+                <img src="IMG-20250430-WA0003.jpg" alt="Donica">
+            </div>
+            <div class="product-info">
+                <h3>Donica</h3>
+                <p>Więcej informacji telefonicznie</p>
+                <p class="price">Cena: do ustalenia telefonicznie</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="card">
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="IMG-20250430-WA0004.jpg" alt="Donica">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Donica</h3>
+                    <p>Więcej informacji telefonicznie</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="IMG-20250430-WA0005.jpg" alt="Donica">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Donica</h3>
+                    <p>Więcej informacji telefonicznie</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="IMG-20250430-WA0006.jpg" alt="Donica">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Donica</h3>
+                    <p>Więcej informacji telefonicznie</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="IMG-20250430-WA0007.jpg" alt="Donica">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Donica</h3>
+                    <p>Więcej informacji telefonicznie</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="IMG-20250430-WA0008.jpg" alt="Donica">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Donica</h3>
+                    <p>Więcej informacji telefonicznie</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="IMG-20250430-WA0009.jpg" alt="Donica">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Donica</h3>
+                    <p>Więcej informacji telefonicznie</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="IMG-20250430-WA0010.jpg" alt="Donica">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Donica</h3>
+                    <p>Więcej informacji telefonicznie</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="IMG-20250430-WA0011.jpg" alt="Donica">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Donica</h3>
+                    <p>Więcej informacji telefonicznie</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="IMG-20250430-WA0012.jpg" alt="Donica">
+                </div>
+                <div class="portfolio-info">
+                    <h3>Donica</h3>
+                    <p>Więcej informacji telefonicznie</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="dostawa">
+            <h2>Dostawa</h2>
+            <div class="card">
+                <p>Oferujemy darmową dostawę na terenie Wołowa. Dla klientów spoza miasta koszt dostawy wynosi 2.50 zł za kilometr.</p>
+                <p>Dokładny koszt dostawy zostanie podany przy składaniu zamówienia.</p>
+            </div>
+        </section>
+
+        <section id="kontakt">
+            <h2>Kontakt</h2>
+            <div class="contact-card">
+                <div class="contact-info">
+                    <p><strong>Telefon:</strong> 725 051 693</p>
+                    <p><strong>Adres:</strong> Wołów, ul. Żeromskiego 42</p>
+                    <p><strong>Płatność:</strong> wyłącznie gotówka</p>
+					<div class="social-links" style="margin-top: 2rem; text-align: center;">
+    <p style="margin-bottom: 1rem; font-size: 1.2rem; font-weight: bold;">Znajdziesz nas także tutaj:</p>
+    <a href="https://www.facebook.com/kasiak2008" target="_blank" style="display: inline-block; margin: 0 10px; text-decoration: none; font-size: 1.6rem; color: #3b5998; transition: transform 0.2s;">
+        📘 Facebook
+    </a>
+    <a href="https://www.instagram.com/betonowe.donice/" target="_blank" style="display: inline-block; margin: 0 10px; text-decoration: none; font-size: 1.6rem; color: #E1306C; transition: transform 0.2s;">
+        📸 Instagram
+    </a>
+</div>
+
+                </div>
+                
+                <div class="business-hours">
+                    <h3>Godziny otwarcia</h3>
+                    <table class="hours-table">
+                        <tr>
+                            <td>Poniedziałek - Piątek</td>
+                            <td>9:00 - 17:00</td>
+                        </tr>
+                        <tr>
+                            <td>Sobota</td>
+                            <td>9:00 - 13:00</td>
+                        </tr>
+                    </table>
+                    <p class="note">W innych godzinach prosimy o kontakt telefoniczny.</p>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2519.214062143083!2d16.64226731574593!3d51.33662297960545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470f3b3a3b0d0a9f%3A0x7e0b9e5b9e5b9e5b!2s%C5%BBeromskiego%2042%2C%2056-100%20Wo%C5%82%C3%B3w!5e0!3m2!1spl!2spl!4v1622470000000!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="opinie" class="reviews-section">
+            <h2>Opinie naszych klientów</h2>
+            <div class="card">
+                <div class="login-section">
+                    <div class="login-form" id="login-form">
+                        <input type="email" id="login-email" placeholder="Wpisz swój email" required>
+                        <button type="button" class="login-btn" id="login-btn">Zaloguj</button>
+                    </div>
+                    <div class="current-user" id="current-user-display"></div>
+                </div>
+                
+                <div class="reviews-container">
+                    <div class="reviews-slider" id="reviews-slider">
+                        <!-- Opinie będą dodawane dynamicznie przez JavaScript -->
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="prev-btn">← Poprzednia</button>
+                        <button class="slider-btn" id="next-btn">Następna →</button>
+                    </div>
+                </div>
+
+                <div class="review-form">
+                    <h3>Dodaj swoją opinię</h3>
+                    <form id="review-form">
+                        <div class="form-group">
+                            <label for="name">Imię (wymagane)</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email (wymagane, nie będzie publikowany)</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rating">Ocena</label>
+                            <select id="rating" name="rating" required>
+                                <option value="5">★★★★★</option>
+                                <option value="4">★★★★☆</option>
+                                <option value="3">★★★☆☆</option>
+                                <option value="2">★★☆☆☆</option>
+                                <option value="1">★☆☆☆☆</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Twoja opinia (wymagane)</label>
+                            <textarea id="comment" name="comment" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Wyślij opinię</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3 style="margin: 0; font-weight: 400;">Dekoracje Ogrodowe</h3>
+            <p style="opacity: 0.8; margin: 0.5rem 0;">Donice i gazony betonowe najwyższej jakości</p>
+            <div class="footer-links">
+                <a href="#o-nas">O Nas</a>
+                <a href="#produkty">Produkty</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#dostawa">Dostawa</a>
+                <a href="#kontakt">Kontakt</a>
+                <a href="#opinie">Opinie</a>
+            </div>
+            <p class="copyright">© 2025 Dekoracje Ogrodowe. Wszelkie prawa zastrzeżone.</p> 
+        </div>
+    </footer>
+
+    <script>
+        // Funkcja do wyświetlania gwiazdek
+        function renderStars(rating) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += i <= rating ? '★' : '☆';
+            }
+            return stars;
+        }
+
+        // Pobierz opinie z localStorage lub użyj domyślnych
+        function getReviews() {
+            const savedReviews = localStorage.getItem('gardenDecorReviews');
+            if (savedReviews) {
+                return JSON.parse(savedReviews);
+            } else {
+                // Domyślne opinie
+                return [
+                    {
+                        name: "Anna Kowalska",
+                        email: "anna@example.com",
+                        date: "2025-04-15",
+                        rating: 5,
+                        comment: "Donice są przepiękne i bardzo solidnie wykonane. Polecam każdemu, kto szuka trwałych i stylowych dekoracji do ogrodu."
+                    },
+                    {
+                        name: "Jan Nowak",
+                        email: "jan@example.com",
+                        date: "2025-03-28",
+                        rating: 4,
+                        comment: "Świetna jakość wykonania, choć czekałem trochę dłużej na realizację zamówienia. Ale efekt końcowy wart był czekania."
+                    },
+                    {
+                        name: "Marta Wiśniewska",
+                        email: "marta@example.com",
+                        date: "2025-04-02",
+                        rating: 5,
+                        comment: "Profesjonalna obsługa i piękne produkty. Donice idealnie komponują się w naszym ogrodzie. Na pewno wrócę po więcej!"
+                    }
+                ];
+            }
+        }
+
+        // Zapisz opinie do localStorage
+        function saveReviews(reviews) {
+            localStorage.setItem('gardenDecorReviews', JSON.stringify(reviews));
+        }
+
+        // Zmienne do obsługi slidera i użytkownika
+        let currentReviewIndex = 0;
+        let reviews = getReviews();
+        let currentUserEmail = localStorage.getItem('currentUserEmail') || null;
+
+        // Aktualizuj wyświetlanie zalogowanego użytkownika
+        function updateUserDisplay() {
+            const userDisplay = document.getElementById('current-user-display');
+            if (currentUserEmail) {
+                userDisplay.textContent = `Zalogowany jako: ${currentUserEmail}`;
+            } else {
+                userDisplay.textContent = '';
+            }
+        }
+
+        // Funkcja do usuwania opinii
+        function deleteReview(index) {
+            if (confirm('Czy na pewno chcesz usunąć tę opinię?')) {
+                reviews.splice(index, 1);
+                saveReviews(reviews);
+                
+                // Dostosuj indeks jeśli usuwamy obecnie wyświetlaną opinię
+                if (currentReviewIndex >= index && currentReviewIndex > 0) {
+                    currentReviewIndex--;
+                }
+                
+                // Jeśli nie ma opinii, zresetuj indeks
+                if (reviews.length === 0) {
+                    currentReviewIndex = 0;
+                } else if (currentReviewIndex >= reviews.length) {
+                    currentReviewIndex = reviews.length - 1;
+                }
+                
+                displayReviews();
+            }
+        }
+
+        // Funkcja do wyświetlania opinii w sliderze
+        function displayReviews() {
+            const slider = document.getElementById('reviews-slider');
+            slider.innerHTML = '';
+            
+            if (reviews.length === 0) {
+                const emptyMessage = document.createElement('div');
+                emptyMessage.className = 'review-card';
+                emptyMessage.innerHTML = '<p>Brak opinii do wyświetlenia. Dodaj pierwszą opinię!</p>';
+                slider.appendChild(emptyMessage);
+                return;
+            }
+            
+            reviews.forEach((review, index) => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card';
+                reviewCard.style.display = index === currentReviewIndex ? 'block' : 'none';
+                
+                const deleteButton = currentUserEmail && review.email === currentUserEmail ? 
+                    `<button class="delete-review" data-index="${index}">×</button>` : 
+                    `<button class="delete-review hidden" data-index="${index}">×</button>`;
+                
+                reviewCard.innerHTML = `
+                    ${deleteButton}
+                    <div class="review-header">
+                        <span class="review-author">${review.name}</span>
+                        <span class="review-date">${review.date}</span>
+                    </div>
+                    <div class="review-rating">
+                        ${renderStars(review.rating)}
+                    </div>
+                    <p>${review.comment}</p>
+                `;
+                
+                slider.appendChild(reviewCard);
+            });
+            
+            // Dodaj event listener do przycisków usuwania
+            document.querySelectorAll('.delete-review:not(.hidden)').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    deleteReview(index);
+                });
+            });
+        }
+
+        // Funkcja do dodawania nowej opinii
+        function addReview(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const rating = parseInt(document.getElementById('rating').value);
+            const comment = document.getElementById('comment').value;
+            
+            const newReview = {
+                name: name,
+                email: email,
+                date: new Date().toISOString().split('T')[0],
+                rating: rating,
+                comment: comment
+            };
+            
+            reviews.unshift(newReview);
+            saveReviews(reviews);
+            currentReviewIndex = 0; // Reset do pierwszej opinii po dodaniu nowej
+            displayReviews();
+            
+            // Reset formularza
+            document.getElementById('review-form').reset();
+            
+            // Przewiń do sekcji opinii
+            document.getElementById('opinie').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Funkcje do nawigacji slidera
+        function showNextReview() {
+            if (reviews.length > 0) {
+                currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+                displayReviews();
+            }
+        }
+
+        function showPrevReview() {
+            if (reviews.length > 0) {
+                currentReviewIndex = (currentReviewIndex - 1 + reviews.length) % reviews.length;
+                displayReviews();
+            }
+        }
+
+        // Funkcja do logowania
+        function loginUser() {
+            const email = document.getElementById('login-email').value.trim();
+            if (email) {
+                currentUserEmail = email;
+                localStorage.setItem('currentUserEmail', email);
+                updateUserDisplay();
+                displayReviews();
+                document.getElementById('login-email').value = '';
+            }
+        }
+
+        // Funkcja do wylogowania
+        function logoutUser() {
+            currentUserEmail = null;
+            localStorage.removeItem('currentUserEmail');
+            updateUserDisplay();
+            displayReviews();
+        }
+
+        // Inicjalizacja
+        document.addEventListener('DOMContentLoaded', () => {
+            updateUserDisplay();
+            displayReviews();
+            
+            // Obsługa formularza opinii
+            document.getElementById('review-form').addEventListener('submit', addReview);
+            
+            // Obsługa przycisków slidera
+            document.getElementById('next-btn').addEventListener('click', showNextReview);
+            document.getElementById('prev-btn').addEventListener('click', showPrevReview);
+            
+            // Obsługa logowania
+            document.getElementById('login-btn').addEventListener('click', loginUser);
+            document.getElementById('login-email').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    loginUser();
+                }
+            });
+            
+            // Dodaj przycisk wylogowania
+            const loginSection = document.querySelector('.login-section');
+            const logoutBtn = document.createElement('button');
+            logoutBtn.textContent = 'Wyloguj';
+            logoutBtn.className = 'login-btn';
+            logoutBtn.style.marginLeft = '10px';
+            logoutBtn.style.backgroundColor = '#dc3545';
+            logoutBtn.addEventListener('click', logoutUser);
+            
+            const loginForm = document.getElementById('login-form');
+            loginForm.appendChild(logoutBtn);
+            
+            // Naprawa mapy - wymuszenie ponownego załadowania iframe
+            const mapIframe = document.querySelector('.map-container iframe');
+            mapIframe.src = mapIframe.src;
+        });
+    </script>
+</body>
+</html>
